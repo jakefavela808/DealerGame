@@ -1,11 +1,11 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class CommandValidator
 {
     private static float MaxSpeed;
     
     public static List<string> Verbs = new List<string>
-        {"go", "eat", "take", "drop"};
+        {"go", "eat", "take", "drop", "story"};
     
     public static List<string> StandaloneVerbs = new List<string>
     {
@@ -16,7 +16,7 @@ public static class CommandValidator
     public static List<string> Nouns = new List<string>
     {
         "bagel", "apple", "beer", "east", "west", "north", "south",
-        "up", "down", "sword"
+        "up", "down", "sword", "guard"
     };
     
     public static bool IsValid(Command command)

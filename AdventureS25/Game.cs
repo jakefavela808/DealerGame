@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class Game
 {
@@ -33,6 +33,13 @@ public static class Game
     {
         Map.Initialize();
         Items.Initialize();
+        Characters.Initialize();
         Player.Initialize();
+        
+        // Add a sample character to demonstrate functionality
+        Location startLocation = Map.StartLocation;
+        Player.AddCharacter("Guard", "A stern-looking guard standing at attention.", startLocation, false);
+        Player.AddDialogueToCharacter("Guard", "Move along, citizen. Nothing to see here.");
+        Player.AddDialogueToCharacter("Guard", "I used to be an adventurer like you, then I took an arrow to the knee.");
     }
 }

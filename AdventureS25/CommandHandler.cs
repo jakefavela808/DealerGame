@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class CommandHandler
 {
@@ -14,7 +14,8 @@ public static class CommandHandler
             {"look", Look},
             {"drop", Drop},
             {"nouns", Nouns},
-            {"verbs", Verbs}
+            {"verbs", Verbs},
+            {"story", Story}
         };
 
     private static void Verbs(Command command)
@@ -86,5 +87,10 @@ public static class CommandHandler
     public static void Move(Command command)
     {
         Player.Move(command);
+    }
+
+    private static void Story(Command command)
+    {
+        Player.TellStory(command);
     }
 }

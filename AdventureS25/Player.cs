@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class Player
 {
@@ -13,89 +13,52 @@ public static class Player
 
     public static void Move(Command command)
     {
-        if (CurrentLocation.CanMoveInDirection(command))
-        {
-            CurrentLocation = CurrentLocation.GetLocationInDirection(command);
-            Console.WriteLine(CurrentLocation.GetDescription());
-        }
-        else
-        {
-            Console.WriteLine("You can't move " + command.Noun + ".");
-        }
+        PlayerMovement.Move(command);
     }
 
     public static string GetLocationDescription()
     {
-        return CurrentLocation.GetDescription();
+        return PlayerMovement.GetLocationDescription();
     }
 
     public static void Take(Command command)
     {
-        // figure out which item to take: turn the noun into an item
-        Item item = Items.GetItemByName(command.Noun);
-
-        if (item == null)
-        {
-            Console.WriteLine("I don't know what " + command.Noun + " is.");
-        }
-        else if (!CurrentLocation.HasItem(item))
-        {
-            Console.WriteLine("There is no " + command.Noun + " here.");
-        }
-        else if (!item.IsTakeable)
-        {
-            Console.WriteLine("The " + command.Noun + " can't be taked.");
-        }
-        else
-        {
-            Inventory.Add(item);
-            CurrentLocation.RemoveItem(item);
-            item.Pickup();
-            Console.WriteLine("You take the " + command.Noun + ".");
-        }
+        PlayerInventory.Take(command);
     }
 
     public static void ShowInventory()
     {
-        if (Inventory.Count == 0)
-        {
-            Console.WriteLine("You are empty-handed.");
-        }
-        else
-        {
-            Console.WriteLine("You are carrying:");
-            foreach (Item item in Inventory)
-            {
-                string article = SemanticTools.CreateArticle(item.Name);
-                Console.WriteLine(" " + article + " " + item.Name);
-            }
-        }
+        PlayerInventory.ShowInventory();
     }
 
     public static void Look()
     {
-        Console.WriteLine(CurrentLocation.GetDescription());
+        PlayerMovement.Look();
+        PlayerCharacterInteraction.ListCharactersAtLocation();
     }
 
     public static void Drop(Command command)
     {       
-        Item item = Items.GetItemByName(command.Noun);
+        PlayerInventory.Drop(command);
+    }
 
-        if (item == null)
-        {
-            string article = SemanticTools.CreateArticle(command.Noun);
-            Console.WriteLine("I don't know what " + article + " " + command.Noun + " is.");
-        }
-        else if (!Inventory.Contains(item))
-        {
-            Console.WriteLine("You're not carrying the " + command.Noun + ".");
-        }
-        else
-        {
-            Inventory.Remove(item);
-            CurrentLocation.AddItem(item);
-            Console.WriteLine("You drop the " + command.Noun + ".");
-        }
+    public static void TellStory(Command command)
+    {
+        PlayerCharacterInteraction.TellStory(command);
+    }
 
+    public static void AddCharacter(string name, string description, Location location, bool canMove = false)
+    {
+        PlayerCharacterInteraction.AddCharacter(name, description, location, canMove);
+    }
+
+    public static void MoveCharacter(string characterName, Location newLocation)
+    {
+        PlayerCharacterInteraction.MoveCharacter(characterName, newLocation);
+    }
+
+    public static void AddDialogueToCharacter(string characterName, string dialogue)
+    {
+        PlayerCharacterInteraction.AddDialogueToCharacter(characterName, dialogue);
     }
 }
