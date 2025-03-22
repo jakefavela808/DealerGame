@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jakef\\OneDrive\\Desktop\\Coding\\DealerGame\\AdventureS25\\AdventureS25.csproj",
+      "projectUniqueName": "C:\\Users\\jakef\\OneDrive\\Desktop\\Coding\\DealerGame-1\\AdventureS25\\AdventureS25.csproj",
       "projectName": "AdventureS25",
-      "projectPath": "C:\\Users\\jakef\\OneDrive\\Desktop\\Coding\\DealerGame\\AdventureS25\\AdventureS25.csproj",
+      "projectPath": "C:\\Users\\jakef\\OneDrive\\Desktop\\Coding\\DealerGame-1\\AdventureS25\\AdventureS25.csproj",
       "packagesPath": "C:\\Users\\jakef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jakef\\OneDrive\\Desktop\\Coding\\DealerGame\\AdventureS25\\obj\\",
+      "outputPath": "C:\\Users\\jakef\\OneDrive\\Desktop\\Coding\\DealerGame-1\\AdventureS25\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jakef\\AppData\\Roaming\\NuGet\\NuGet.Config"

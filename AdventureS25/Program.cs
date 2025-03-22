@@ -1,10 +1,12 @@
-﻿namespace AdventureS25;
+using AdventureS25.Core;
+
+namespace AdventureS25;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        
-        Game.PlayGame();
+        Game.Initialize();
+        Game.Start();
     }
 }
